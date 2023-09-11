@@ -1,11 +1,16 @@
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 
-export function useLocalStorage<T>(item: string) {
-  const [value, setValue] = useState(
-    JSON.stringify(localStorage.getItem(item) ?? "")
-  );
+export function useLocalStorage<T>(item: string, initialValue: T) {
+  const [value, setValue] = useState<T>(initialValue);
 
-  const updateLocalStorage = (newValue: SetStateAction<string>) => {
+  // TRATATIVA PARA QUEM RECEBE ERRO LOCALSTORAGE IS NOT DEFINED
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    let value = localStorage.getItem(item);
+    if (value) setValue(JSON.parse(value));
+  }, [window]);
+
+  const updateLocalStorage = (newValue: T) => {
     setValue(newValue);
     localStorage.setItem(item, JSON.stringify(newValue));
   };
