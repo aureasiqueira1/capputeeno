@@ -36,7 +36,6 @@ git clone git@github.com:aureasiqueira1/capputeeno.git
 2. Vá para a pasta do projeto
 
 ```bash
-cd challenge-frontend
 cd capputeeno
 ```
 
