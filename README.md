@@ -37,6 +37,7 @@ git clone git@github.com:aureasiqueira1/capputeeno.git
 
 ```bash
 cd capputeeno
+cd capputeeno
 ```
 
 3. Instalar dependências
@@ -56,7 +57,7 @@ npm run dev
 2. Vá para a pasta API
 
 ```bash
-cd challenge-frontend
+cd capputeeno
 cd api
 ```
 
